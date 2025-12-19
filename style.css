@@ -508,26 +508,36 @@ td {
 @media only screen and (max-width: 600px) {
     .header-container {
         display: flex !important;
-        flex-direction: column !important;
+        flex-direction: column !important; /* Stack: Photo on top, Text below */
         align-items: center !important;
         height: auto !important; 
         padding-bottom: 20px;
     }
+
     .header-profile-picture {
-        position: relative !important; 
+        position: relative !important; /* Forces it into the normal flow */
         display: block !important;
         margin: 0 auto 20px auto !important; 
         width: 180px !important;
         height: 180px !important;
         flex-shrink: 0;
     }
+
     .header-text {
+        /* ADD THESE LINES */
+        position: relative !important; 
+        display: block !important;
+        width: 100% !important;
+        height: auto !important; /* Allows it to expand with text */
+        min-height: 0 !important;
+        margin: 0 !important;
+        /* --------------- */
         gap: 15px; 
         margin-bottom: 20px; 
-        min-height: 0;
     }
+
     .header-links {
-        margin-top: 10px;
+        margin-top: 15px !important;
         margin-bottom: 10px;
     }
 }
