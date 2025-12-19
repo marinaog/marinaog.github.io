@@ -508,37 +508,57 @@ td {
 @media only screen and (max-width: 600px) {
     .header-container {
         display: flex !important;
-        flex-direction: column !important; /* Stack: Photo on top, Text below */
+        flex-direction: column !important;
         align-items: center !important;
+        justify-content: flex-start !important;
         height: auto !important; 
-        padding-bottom: 20px;
+        min-height: 0 !important;
+        padding: 20px 0 !important;
     }
 
+    /* Force the photo to be the first item and stay in place */
     .header-profile-picture {
-        position: relative !important; /* Forces it into the normal flow */
+        order: 1 !important; /* Forces it to the TOP */
+        position: relative !important; 
+        top: 0 !important;
+        left: 0 !important;
         display: block !important;
         margin: 0 auto 20px auto !important; 
         width: 180px !important;
         height: 180px !important;
-        flex-shrink: 0;
+        flex-shrink: 0 !important;
+        background-size: cover !important;
     }
 
+    /* Force the text box to sit UNDER the photo */
     .header-text {
-        /* ADD THESE LINES */
-        position: relative !important; 
+        order: 2 !important; /* Forces it BELOW the photo */
+        position: relative !important;
         display: block !important;
         width: 100% !important;
-        height: auto !important; /* Allows it to expand with text */
+        height: auto !important;
         min-height: 0 !important;
         margin: 0 !important;
-        /* --------------- */
-        gap: 15px; 
-        margin-bottom: 20px; 
+        text-align: center !important;
     }
 
+    .header-name h1 {
+        font-size: 2.5em !important; /* Shrink title slightly for mobile */
+    }
+
+    .header-subtitle {
+        margin-top: 10px !important;
+        margin-bottom: 20px !important;
+        height: auto !important;
+    }
+
+    /* Ensure icons are at the bottom of this block */
     .header-links {
-        margin-top: 15px !important;
-        margin-bottom: 10px;
+        order: 3 !important;
+        display: flex !important;
+        justify-content: center !important;
+        margin-top: 20px !important;
+        padding-bottom: 20px !important;
     }
 }
 
